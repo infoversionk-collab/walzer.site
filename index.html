@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社Walzer｜止まらず、進み続ける。</title>
+<meta name="description" content="株式会社Walzer。人と企業の可能性をひらき、昨日より一歩前へ。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+JP:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#f4f1e9;
+  --paper:#ebe6db;
+  --ink:#181816;
+  --dark:#24231f;
+  --white:#faf8f2;
+  --muted:#716d64;
+  --gold:#a0824c;
+  --line:#d2ccbf;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:var(--bg);
+  font-family:"Noto Serif JP",serif;
+  line-height:1.9;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+
+/* HEADER */
+.header{
+  position:fixed;
+  z-index:100;
+  top:0;left:0;
+  width:100%;
+  height:78px;
+  padding:0 5vw;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(244,241,233,.94);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(10px);
+}
+.logo{
+  font-family:"Cormorant Garamond",serif;
+  font-size:31px;
+  font-weight:600;
+  letter-spacing:.08em;
+}
+.logo small{
+  margin-left:12px;
+  font:700 8px Inter,sans-serif;
+  letter-spacing:.22em;
+  color:var(--muted);
+}
+.nav{
+  display:flex;
+  gap:28px;
+  font:600 9px Inter,sans-serif;
+  letter-spacing:.2em;
+  color:#55524b;
+}
+.nav a{transition:.25s}
+.nav a:hover{color:var(--gold)}
+.menu-btn{display:none}
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:100svh;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  background:#141412;
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(12,12,11,.95) 0%,rgba(12,12,11,.78) 43%,rgba(12,12,11,.25) 80%),
+    url("assets/walzer-hero.jpg") center/cover no-repeat;
+  transform:scale(1.03);
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:1320px;
+  margin:auto;
+  padding:145px 7vw 70px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:90px;
+  align-items:end;
+}
+.eyebrow,.label{
+  font:600 9px Inter,sans-serif;
+  letter-spacing:.3em;
+}
+.eyebrow{color:#aaa}
+.hero h1{
+  margin:22px 0 28px;
+  font-size:clamp(55px,7vw,105px);
+  font-weight:300;
+  line-height:1.25;
+  letter-spacing:.08em;
+}
+.hero h1 span{
+  color:#d8c39a;
+  font:600 .7em "Cormorant Garamond",serif;
+  letter-spacing:.08em;
+}
+.hero-copy{
+  color:#d9d6cf;
+  font-size:16px;
+  line-height:2.2;
+}
+.hero-side{
+  padding-left:42px;
+  border-left:1px solid rgba(255,255,255,.35);
+}
+.hero-side strong{
+  font:600 48px "Cormorant Garamond",serif;
+  letter-spacing:.08em;
+}
+.gold-line{
+  width:48px;
+  height:1px;
+  margin:25px 0;
+  background:var(--gold);
+}
+.hero-side p{
+  color:#c8c5be;
+  font-size:14px;
+}
+.scroll{
+  display:inline-flex;
+  align-items:center;
+  gap:15px;
+  margin-top:65px;
+  color:#bbb;
+  font:8px Inter,sans-serif;
+  letter-spacing:.35em;
+}
+.scroll-line{
+  width:55px;
+  height:1px;
+  background:#aaa;
+}
+
+/* COMMON */
+.section{
+  padding:130px 7vw;
+  border-bottom:1px solid var(--line);
+}
+.container{
+  width:100%;
+  max-width:1250px;
+  margin:auto;
+}
+.label{color:var(--gold)}
+h2{
+  margin:15px 0 45px;
+  font-size:clamp(43px,5vw,75px);
+  font-weight:400;
+  line-height:1.45;
+  letter-spacing:.06em;
+}
+h2 em{
+  font-family:"Cormorant Garamond",serif;
+  font-style:normal;
+}
+.two-col{
+  display:grid;
+  grid-template-columns:1fr 1.45fr;
+  gap:100px;
+}
+.body{
+  color:var(--muted);
+  font-size:15px;
+  line-height:2.35;
+}
+.lead{
+  margin-top:0;
+  color:var(--ink);
+  font-size:clamp(21px,2.5vw,34px);
+  line-height:1.9;
+}
+
+/* MESSAGE */
+.message-line{
+  width:55px;
+  height:1px;
+  margin-top:38px;
+  background:var(--gold);
+}
+
+/* PHILOSOPHY */
+.philosophy{
+  background:var(--dark);
+  color:#fff;
+}
+.philosophy .label{color:#c5aa76}
+.philosophy .large{
+  color:#d0cdc5;
+  font-size:clamp(20px,2.4vw,32px);
+  line-height:2;
+}
+.three{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  margin-top:70px;
+  border-top:1px solid #45433d;
+  border-bottom:1px solid #45433d;
+}
+.principle{
+  min-height:280px;
+  padding:42px 30px;
+  border-right:1px solid #45433d;
+}
+.principle:last-child{border-right:0}
+.principle .roman{
+  color:#c5a873;
+  font:13px "Cormorant Garamond",serif;
+}
+.principle h3{
+  margin:34px 0 10px;
+  font:600 27px Inter,sans-serif;
+  letter-spacing:.05em;
+}
+.principle p{
+  color:#aaa;
+  font-size:14px;
+}
+
+/* VISION */
+.vision{
+  background:var(--paper);
+}
+.vision-inner{
+  text-align:center;
+}
+.vision-inner h2{
+  font-size:clamp(50px,7vw,95px);
+}
+.vision-copy{
+  max-width:760px;
+  margin:auto;
+  font-size:17px;
+}
+.vision-copy .small{
+  margin-top:35px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* BUSINESS */
+.business-intro{
+  display:grid;
+  grid-template-columns:1fr .8fr;
+  gap:90px;
+  align-items:end;
+}
+.business-intro p{color:var(--muted);font-size:14px}
+.business-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  margin-top:60px;
+  border:1px solid #c8c0b1;
+  background:#c8c0b1;
+}
+.business-card{
+  min-height:250px;
+  padding:44px;
+  background:var(--bg);
+}
+.business-card small{
+  color:var(--gold);
+  font:600 9px Inter,sans-serif;
+  letter-spacing:.2em;
+}
+.business-card h3{
+  margin:18px 0 8px;
+  font-size:30px;
+  font-weight:500;
+}
+.business-card p{
+  color:var(--muted);
+  font-size:14px;
+}
+.business-note{
+  margin-top:40px;
+  color:#77736b;
+  font-size:13px;
+}
+
+/* PEOPLE */
+.people{background:#e8e3d8}
+.people-lead{color:var(--muted);font-size:16px}
+.people-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:60px;
+}
+.person{
+  height:330px;
+  padding:28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:end;
+  border:1px solid #c8c0b1;
+  background:linear-gradient(145deg,#d8d0bf,#b9ad99);
+}
+.person:nth-child(2){background:linear-gradient(145deg,#c9c0ae,#a99d89)}
+.person:nth-child(3){background:linear-gradient(145deg,#ddd6c7,#b5aa98)}
+.person p{
+  margin:0;
+  color:#635849;
+  font:9px Inter,sans-serif;
+  letter-spacing:.25em;
+}
+.person h3{
+  margin:8px 0 0;
+  color:#2c2925;
+  font:34px/1.05 "Cormorant Garamond",serif;
+}
+
+/* CONTACT */
+.contact{
+  padding:155px 7vw;
+  text-align:center;
+  background:#faf8f2;
+}
+.contact h2{font-size:clamp(48px,6vw,88px)}
+.contact p{
+  max-width:700px;
+  margin:0 auto 42px;
+  color:var(--muted);
+}
+.cta{
+  display:inline-flex;
+  align-items:center;
+  gap:28px;
+  padding:17px 40px;
+  color:#fff;
+  background:var(--ink);
+  font:700 9px Inter,sans-serif;
+  letter-spacing:.25em;
+  transition:.25s;
+}
+.cta:hover{background:var(--gold)}
+
+/* FOOTER */
+footer{
+  padding:30px 7vw;
+  display:flex;
+  justify-content:space-between;
+  background:#171715;
+  color:#aaa;
+  font:8px Inter,sans-serif;
+  letter-spacing:.25em;
+}
+
+/* ANIMATION */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity 1s ease,transform 1s ease;
+}
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+  .header{height:65px;padding:0 6vw}
+  .logo{font-size:27px}
+  .logo small{display:none}
+  .nav{display:none}
+  .menu-btn{
+    display:flex;
+    width:40px;height:40px;
+    padding:0;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:6px;
+    border:1px solid #aaa;
+    border-radius:50%;
+    background:transparent;
+    cursor:pointer;
+  }
+  .menu-btn span{width:15px;height:1px;background:var(--ink)}
+  .hero-content{
+    grid-template-columns:1fr;
+    gap:45px;
+    padding:120px 8vw 60px;
+  }
+  .hero-side{
+    padding:30px 0 0;
+    border-top:1px solid rgba(255,255,255,.3);
+    border-left:0;
+  }
+  .hero-side strong{font-size:40px}
+  .scroll{margin-top:45px}
+  .section{padding:90px 7vw}
+  .two-col,.business-intro{grid-template-columns:1fr;gap:25px}
+  .three,.business-grid,.people-grid{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid #45433d}
+  .principle:last-child{border-bottom:0}
+  .business-card{min-height:205px}
+  .person{height:280px}
+  footer{display:block;line-height:2.5}
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <a href="#top" class="logo">Walzer <small>株式会社 WALZER</small></a>
+
+  <nav class="nav">
+    <a href="#message">MESSAGE</a>
+    <a href="#philosophy">PHILOSOPHY</a>
+    <a href="#business">BUSINESS</a>
+    <a href="#people">PEOPLE</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+
+  <button class="menu-btn" aria-label="メニュー">
+    <span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+
+    <div class="hero-content">
+
+      <div class="reveal">
+        <p class="eyebrow">WALZER INC. / MOVE FORWARD.</p>
+
+        <h1>
+          止まらず、<br>
+          <span>進み続ける。</span>
+        </h1>
+
+        <p class="hero-copy">
+          人と企業の可能性をひらき、<br>
+          昨日より、一歩前へ。<br>
+          Walzerは、前へ進むためのきっかけをつくります。
+        </p>
+
+        <a href="#message" class="scroll">
+          <span class="scroll-line"></span>
+          SCROLL
+        </a>
+      </div>
+
+      <div class="hero-side reveal">
+        <strong>MOVE FORWARD.</strong>
+        <div class="gold-line"></div>
+        <p>
+          考える。<br>
+          動く。<br>
+          変える。
+        </p>
+        <p>
+          小さな一歩を積み重ねることで、<br>
+          未来は少しずつ変わっていく。
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- MESSAGE -->
+  <section id="message" class="section">
+    <div class="container two-col reveal">
+
+      <div>
+        <p class="label">01 / MESSAGE</p>
+        <h2>想い</h2>
+        <div class="message-line"></div>
+      </div>
+
+      <div>
+        <p class="lead">
+          人は、止まった瞬間に<br>
+          成長も止まる。
+        </p>
+
+        <p class="body">
+          でも実際は、<br>
+          「変わりたい」と思いながら、<br>
+          動けないまま時間だけが過ぎていく人がほとんどだと思う。
+        </p>
+
+        <p class="body">
+          Walzerは、そんな“止まりそうな瞬間”でも
+          歩みを止めない人が集まる場所。
+        </p>
+
+        <p class="body">
+          ただ働くのではなく、<br>
+          自分のビジョンのために働く。
+        </p>
+
+        <p class="body">
+          昨日より一歩でも前へ。<br>
+          その積み重ねが、気づいたら
+          “別のステージ”に立たせてくれる。
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- PHILOSOPHY -->
+  <section id="philosophy" class="section philosophy">
+    <div class="container reveal">
+
+      <p class="label">02 / PHILOSOPHY</p>
+
+      <h2>
+        WALZERの、<br>
+        三拍子。
+      </h2>
+
+      <p class="large">
+        ワルツは、3拍子で前に進み続ける踊り。<br>
+        一歩一歩は小さくても、リズムに乗れば確実に前に進める。
+      </p>
+
+      <div class="three">
+
+        <article class="principle">
+          <div class="roman">Ⅰ</div>
+          <h3>MOVE</h3>
+          <p>
+            まず、動く。<br>
+            考えすぎて止まるより、<br>
+            小さくても一歩を踏み出す。
+          </p>
+        </article>
+
+        <article class="principle">
+          <div class="roman">Ⅱ</div>
+          <h3>CHALLENGE</h3>
+          <p>
+            挑戦を楽しむ。<br>
+            失敗を止まる理由にせず、<br>
+            次の一歩を見つける。
+          </p>
+        </article>
+
+        <article class="principle">
+          <div class="roman">Ⅲ</div>
+          <h3>GROW</h3>
+          <p>
+            昨日の自分を超える。<br>
+            小さな成長を積み重ねていく。
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- VISION -->
+  <section class="section vision">
+    <div class="container vision-inner reveal">
+
+      <p class="label">03 / VISION</p>
+
+      <h2>
+        仕事を、<br>
+        人生を進める<br>
+        <em>力に。</em>
+      </h2>
+
+      <div class="vision-copy">
+        <p>
+          才能とかセンスじゃなくて、<br>
+          「止まらずに動き続けられるかどうか」。
+        </p>
+
+        <p>
+          それだけで、人生は変わる。
+        </p>
+
+        <p class="small">
+          Walzerは、仕事を単なる作業ではなく、<br>
+          自分の未来へ進むための時間だと考えています。
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- BUSINESS -->
+  <section id="business" class="section">
+    <div class="container reveal">
+
+      <p class="label">04 / BUSINESS</p>
+
+      <div class="business-intro">
+
+        <h2>
+          人と企業が、<br>
+          <em>前へ進むために。</em>
+        </h2>
+
+        <p>
+          Walzerは、一つの領域に限定せず、<br>
+          人や企業が抱える課題に向き合い、<br>
+          前へ進むための仕組みをつくります。
+        </p>
+
+      </div>
+
+      <div class="business-grid">
+
+        <article class="business-card">
+          <small>01 / PEOPLE</small>
+          <h3>人材・キャリア</h3>
+          <p>
+            人と企業の出会いをつくり、
+            それぞれの可能性が広がる
+            きっかけを生み出します。
+          </p>
+        </article>
+
+        <article class="business-card">
+          <small>02 / GROWTH</small>
+          <h3>事業支援</h3>
+          <p>
+            営業・集客・仕組みづくりなど、
+            企業の成長に必要な部分を
+            実行まで支えます。
+          </p>
+        </article>
+
+        <article class="business-card">
+          <small>03 / CREATIVE</small>
+          <h3>クリエイティブ</h3>
+          <p>
+            Web・デザイン・コンテンツを通じて、
+            企業の価値をわかりやすく伝えます。
+          </p>
+        </article>
+
+        <article class="business-card">
+          <small>04 / PARTNERSHIP</small>
+          <h3>伴走支援</h3>
+          <p>
+            外から提案するだけではなく、
+            現場に入り、一緒に考え、
+            一緒に前へ進みます。
+          </p>
+        </article>
+
+      </div>
+
+      <p class="business-note">
+        必要に応じて、営業活動・マーケティング・採用などの
+        実行支援も行っています。
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- PEOPLE -->
+  <section id="people" class="section people">
+    <div class="container reveal">
+
+      <p class="label">05 / PEOPLE</p>
+
+      <h2>
+        人が、<br>
+        <em>会社をつくる。</em>
+      </h2>
+
+      <p class="people-lead">
+        完成された人ではなく、<br>
+        これから成長したい人と出会いたい。
+      </p>
+
+      <div class="people-grid">
+
+        <article class="person">
+          <p>01 / STORY</p>
+          <h3>YOUR<br>STORY</h3>
+        </article>
+
+        <article class="person">
+          <p>02 / VISION</p>
+          <h3>YOUR<br>VISION</h3>
+        </article>
+
+        <article class="person">
+          <p>03 / GROWTH</p>
+          <h3>YOUR<br>GROWTH</h3>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container reveal">
+
+      <p class="label">06 / CONTACT</p>
+
+      <h2>
+        その先に、<br>
+        まだ見ぬ自分がいる。
+      </h2>
+
+      <p>
+        企業も、人も、止まらずに進み続ける。<br>
+        Walzerは、その一歩をつくる会社です。
+      </p>
+
+      <a href="mailto:info@walzer.jp" class="cta">
+        CONTACT <span>→</span>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+
+<footer>
+  <div>© WALZER INC.</div>
+  <div>MOVE / CHALLENGE / GROW</div>
+</footer>
+
+
+<script>
+const revealItems = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  { threshold: 0.12 }
+);
+
+revealItems.forEach((item) => observer.observe(item));
+
+/* Mobile menu */
+const menuButton = document.querySelector(".menu-btn");
+const nav = document.querySelector(".nav");
+
+menuButton?.addEventListener("click", () => {
+  nav.classList.toggle("open");
+});
+</script>
+
+</body>
+</html>
